@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NRI University | Admissions</title>
+<link rel="stylesheet" href="clg infm&admsn website.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --navy: #082c59;
+    --blue: #1261b0;
+    --gold: #ffcc33;
+    --light: #f0f7ff;
+    --white: #ffffff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+    color: #26364a;
+    background: var(--white);
+}
+
+header {
+    background: var(--navy);
+    color: white;
+    padding: 16px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 15px #0002;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+.logo span {
+    display: block;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.hero {
+    min-height: 460px;
+    padding: 90px 7%;
+    display: flex;
+    align-items: center;
+    color: white;
+    background:
+        linear-gradient(90deg, #052958 5%, #0755a5d9 48%, #0755a533),
+        url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero .tag {
+    color: var(--gold);
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 65px);
+    line-height: 1.15;
+    margin: 12px 0;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+section {
+    padding: 65px 7%;
+    scroll-margin-top: 85px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title p {
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    color: var(--navy);
+    font-size: 32px;
+    margin-top: 5px;
+}
+
+.section-title h2::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 4px;
+    background: var(--gold);
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+/* About section */
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px #0002;
+}
+
+.about h2 {
+    color: var(--navy);
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.stat {
+    background: var(--light);
+    padding: 15px 8px;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.stat h3 {
+    color: var(--blue);
+    font-size: 24px;
+}
+
+/* Cards */
+.light-section {
+    background: var(--light);
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: white;
+    padding: 28px 22px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #153c6410;
+    border: 1px solid #e2edfa;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px #153c6420;
+}
+
+.card .icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.card .course {
+    color: var(--blue);
+    font-weight: bold;
+}
+
+/* Faculty */
+.faculty-card {
+    text-align: center;
+}
+
+.avatar {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 15px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #dcecff, #ffedb0);
+    font-size: 42px;
+}
+
+/* Admissions */
+.admissions {
+    background: linear-gradient(120deg, #082c59, #1261b0);
+    color: white;
+    text-align: center;
+}
+
+.admissions h2 {
+    color: var(--gold);
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.steps {
+    max-width: 650px;
+    margin: 25px auto;
+    text-align: left;
+}
+
+.steps p {
+    padding: 8px 0;
+}
+
+/* Events */
+.event-card {
+    border-top: 4px solid var(--gold);
+}
+
+/* Contact */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.contact-box {
+    background: var(--light);
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.contact-box h3 {
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.contact-box a {
+    color: var(--blue);
+    overflow-wrap: anywhere;
+}
+
+footer {
+    background: #061d3c;
+    color: white;
+    padding: 30px 7%;
+    text-align: center;
+}
+
+footer .logo {
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero {
+        min-height: 380px;
+        padding: 65px 6%;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .about img {
+        height: 240px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 45px 6%;
+    }
+
+    .section-title h2 {
+        font-size: 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<header>
+    <div class="logo">
+        🎓 NRI UNIVERSITY
+        <span>LEARN | INNOVATE | EXCEL</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#departments">Departments</a>
+        <a href="#faculty">Faculty</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#admissions">Admissions</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- Hero Banner -->
+<div class="hero" id="home">
+    <div class="hero-content">
+        <p class="tag">WELCOME TO OUR CAMPUS</p>
+        <h1>NRI UNIVERSITY</h1>
+        <p>Build Your Future with Quality Education</p>
+        <p>Quality Education | Modern Campus | Bright Future</p>
+        <a href="#admissions" class="btn">Apply for Admission →</a>
+    </div>
+</div>
+
+<!-- About -->
+<section id="about">
+    <div class="about">
+        <img
+            src="https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1000&q=80"
+            alt="University campus">
+
+        <div>
+            <p style="color:#1261b0;font-weight:bold">
+                ABOUT OUR UNIVERSITY
+            </p>
+            <h2>Empowering Students for a Better Tomorrow</h2>
+            <p>
+                NRI University aims to provide quality education,
+                develop technical skills, and prepare students for
+                successful careers. Students are encouraged to explore
+                innovation, research, teamwork, and creativity.
+            </p>
+
+            <div class="stats">
+                <div class="stat">
+                    <h3>🎓</h3>
+                    <p>Quality Education</p>
+                </div>
+                <div class="stat">
+                    <h3>💡</h3>
+                    <p>Innovation</p>
+                </div>
+                <div class="stat">
+                    <h3>🚀</h3>
+                    <p>Career Growth</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Departments -->
+<section class="light-section" id="departments">
+    <div class="section-title">
+        <p>ACADEMIC EXCELLENCE</p>
+        <h2>Our Departments</h2>
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <div class="icon">💻</div>
+            <h3>Computer Science</h3>
+            <p class="course">B.Tech in CSE</p>
+            <p>Programming, web development, databases, and software engineering.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🤖</div>
+            <h3>Artificial Intelligence</h3>
+            <p class="course">B.Tech in AI & ML</p>
+            <p>Machine learning, data science, robotics, and generative AI.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔌</div>
+            <h3>Electronics</h3>
+            <p class="course">B.Tech in ECE</p>
+            <p>Electronic circuits, communication systems, and embedded systems.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚙️</div>
+            <h3>Mechanical Engineering</h3>
+            <p class="course">B.Tech in Mechanical</p>
+            <p>Engineering design, manufacturing, automation, and robotics.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Faculty -->
+<section id="faculty">
+    <div class="section-title">
+        <p>LEARN FROM THE BEST</p>
+        <h2>Meet Our Faculty</h2>
+    </div>
+
+    <div class="card-container">
+        <div class="card faculty-card">
+            <div class="avatar">👩‍🏫</div>
+            <h3>Dr. Sruthi Chowdary</h3>
+            <p>Professor – Computer Science</p>
+            <p>Specialization: Software Engineering</p>
+        </div>
+
+        <div class="card faculty-card">
+            <div class="avatar">👩‍💻</div>
+            <h3>Dr. Nithya Chowdary</h3>
+            <p>Associate Professor – AI & ML</p>
+            <p>Specialization: Artificial Intelligence</p>
+        </div>
+
+        <div class="card faculty-card">
+            <div class="avatar">👨‍🏫</div>
+            <h3>Mr. Tharun Kumar</h3>
+            <p>Assistant Professor – ECE</p>
+            <p>Specialization: Communication Systems</p>
+        </div>
+    </div>
+</section>
+
+<!-- Facilities -->
+<section class="light-section" id="facilities">
+    <div class="section-title">
+        <p>CAMPUS LIFE</p>
+        <h2>Our Facilities</h2>
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <div class="icon">📚</div>
+            <h3>Digital Library</h3>
+            <p>Books, journals, and digital learning resources.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🖥️</div>
+            <h3>Computer Labs</h3>
+            <p>Laboratories for programming and practical learning.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏏</div>
+            <h3>Sports</h3>
+            <p>Sports grounds and activities for physical fitness.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏠</div>
+            <h3>Hostel</h3>
+            <p>Student accommodation and a comfortable living environment.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Admissions -->
+<section class="admissions" id="admissions">
+    <p style="color:#ffcc33;font-weight:bold">
+        ADMISSIONS 2026–2030
+    </p>
+    <h2>Your Future Starts Here!</h2>
+    <p>Take the first step towards your academic and professional goals.</p>
+
+    <div class="steps">
+        <p>✅ <strong>Step 1:</strong> Check eligibility criteria.</p>
+        <p>✅ <strong>Step 2:</strong> Complete the application form.</p>
+        <p>✅ <strong>Step 3:</strong> Submit the required documents.</p>
+        <p>✅ <strong>Step 4:</strong> Complete verification and admission formalities.</p>
+    </div>
+
+    <a href="#contact" class="btn">Enquire Now →</a>
+</section>
+
+<!-- Events -->
+<section id="events">
+    <div class="section-title">
+        <p>LEARN BEYOND THE CLASSROOM</p>
+        <h2>Campus Life & Events</h2>
+    </div>
+
+    <div class="card-container">
+        <div class="card event-card">
+            <div class="icon">💡</div>
+            <h3>Technical Fest</h3>
+            <p>Explore coding competitions, projects, and technology exhibitions.</p>
+        </div>
+
+        <div class="card event-card">
+            <div class="icon">🎭</div>
+            <h3>Annual Day</h3>
+            <p>Celebrate student achievements, cultural activities, and talent.</p>
+        </div>
+
+        <div class="card event-card">
+            <div class="icon">🧠</div>
+            <h3>AI Workshops</h3>
+            <p>Learn about artificial intelligence, robotics, and programming.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="light-section" id="contact">
+    <div class="section-title">
+        <p>WE ARE HERE TO HELP</p>
+        <h2>Contact Us</h2>
+    </div>
+
+    <div class="contact-grid">
+        <div class="contact-box">
+            <h3>📍 Address</h3>
+            <p>NRI University, Vijayawada, Andhra Pradesh</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>✉️ Email</h3>
+            <p>Contact the university's official admissions office.</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>📞 Phone</h3>
+            <p>Contact the official university office for enquiries.OR contact to this number 9876543210
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="logo">🎓 NRI UNIVERSITY</div>
+    <p>Learn | Innovate | Excel</p>
+    <p>© 2026 NRI University. All Rights Reserved.</p>
+    <p>Designed using HTML and CSS</p>
+</footer>
+
+</body>
+</html>
